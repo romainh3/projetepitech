@@ -1,0 +1,36 @@
+<?php $adminController = new AdminController(); ?>
+
+<?php if($adminController -> isAdmin()): ?>
+<div>
+    <h1>Commande N°<?= $idCmd ?></h1>
+    <p><?= $userInfo['nom'] ?> <?= $userInfo['prenom'] ?></p>
+    <p><?= $userInfo['adresse'] ?></p>
+    <p><?= $userInfo['code_postale'] ?> <?= $userInfo['ville'] ?></p>
+    <p><?= $userInfo['tel'] ?></p>
+    <p><?= $userInfo['email'] ?></p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>num commande</th>
+            <th>id meal</th>
+            <th>nom</th>
+            <th>quantite</th>
+            <th>prix</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($details as $detail): ?>
+            <tr>
+                <td><?= $detail['id_cmd'] ?></td>
+                <td><?= $detail['id_meal'] ?></td>
+                <td><?= $detail['name']?></td>
+                <td><?= $detail['quantite'] ?></td>
+                <td><?= $detail['prix_unit'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<a href="index.php?name=dispOrder">Retour à la liste des commande</a>
+<?php endif; ?>

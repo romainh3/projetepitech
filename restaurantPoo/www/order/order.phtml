@@ -1,0 +1,25 @@
+<h1>Commande</h1>
+
+<form>
+    <label for='product'>nom</label>
+    <select name='product' id='product'>
+        <?php foreach($meals as $meal): ?>
+            <option value=<?= $meal["id"] ?>><?= $meal["name"] ?></option>
+        <?php endforeach; ?>
+    </select>
+    <div id='productDetails'>
+        <img src=''>
+        <p></p>
+        <strong></strong>
+    </div>
+    <label for='quantity'></label>
+    <input type='number' name='quantity' id='quantity' min='1'>
+    <input type='button' name='add' id='add' value='ajouter'>
+</form>
+
+<form id='formValidPanier'>
+    <table id='panier'>
+        
+    </table>
+    <input type='button' name='order' id='order' value='valider'>
+</form>

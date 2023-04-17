@@ -1,0 +1,16 @@
+<h1>Les plats</h1>
+
+<div class="home">
+    <?php foreach($meals as $meal): ?>
+        <?='<article> 
+                <h2>'.$meal["name"].'</h2>
+                <div>
+                    <img src=www/img/'.$meal["photo"].'></img>
+                    <div>
+                        <p>'.$meal["description"].'</p>
+                        <p>'.number_format($meal["prix"], 2).'</p>
+                    </div>
+                </div>
+            </article>'?>
+    <?php endforeach; ?>
+</div>             

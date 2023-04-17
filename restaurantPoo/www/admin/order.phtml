@@ -1,0 +1,24 @@
+<?php $adminController = new AdminController(); ?>
+
+<?php if($adminController -> isAdmin()): ?>
+<table>
+    <thead>
+        <tr>
+            <th>Num</th>
+            <th>Nom du Client</th>
+            <th>Date</th>
+            <th>Prix total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($orders as $order): ?>
+            <tr>
+                <td><a href="index.php?name=dispDetails&id=<?= $order['id'] ?>"><?= $order['id'] ?></a></td>
+                <td><?= $order['nom'].' '.$order['prenom'] ?></td>
+                <td><?= $order['DATEONLY']?></td>
+                <td><?= $order['prix_total'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php endif; ?>

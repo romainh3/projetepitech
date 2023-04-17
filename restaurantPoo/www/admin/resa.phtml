@@ -1,0 +1,24 @@
+<?php $adminController = new AdminController(); ?>
+
+<?php if($adminController -> isAdmin()): ?>
+<table>
+    <thead>
+        <tr>
+            <th>Client</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Nbr couverts</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($resas as $resa): ?>
+            <tr>
+                <td><?= $resa['nom']. ' '.$resa['prenom'] ?></td>
+                <td><?= $resa['DATEONLY'] ?></td>
+                <td><?= $resa['TIMEONLY'] ?></td>
+                <td><?= $resa['nb_couverts'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php endif; ?>

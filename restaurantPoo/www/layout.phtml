@@ -1,0 +1,78 @@
+<?php
+	$cutomerController = new CustomerControler();
+	$adminController = new AdminController();
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Document</title>
+	    <meta name="description" content="">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	    <!--<link rel="stylesheet" href="css/normalize.css">-->
+	    <link rel="stylesheet" href="www/css/style.css"> 
+	</head>
+	<body>
+	    <header>
+	        <div class="container header-flex">
+    	        <a href="index.php">La <i class="fas fa-angle-left"></i>balise<i class="fas fa-angle-right"></i></a>
+    	        <div>
+    	        	<?php if($adminController -> isAdmin()): ?>
+    	            
+    	            	<p>Admin Sesh</p>
+    	            	<a href="index.php?name=admin">Tableau de bord</a>
+    	            	<a href="index.php?name=disconnect">Se déconnecter</a>
+    	        	
+    	            <?php elseif($cutomerController -> isConnected()): ?>
+    	            
+    	            	<a href="index.php?name=account"><?='Bonjour '.$_SESSION['user']['nom']. ' ' .$_SESSION['user']['prenom'] ?></a>
+    	            	<a href="index.php?name=order">Commander</a>
+    	            	<a href="index.php?name=booking">Réserver</a>
+    	            	<a href="index.php?name=disconnect">Se déconnecter</a>
+    	            	
+    	            <?php else: ?>
+    	            
+    	            	<a href="index.php?name=connect">connexion</a>
+    	            	<a href="index.php?name=create">créer un compte</a>
+    	            	
+    	            <?php endif; ?>
+    	        </div>
+	        </div>
+	    </header>
+
+	    <main>
+	        <div class="container">
+	        	<?php if(isset($alert)): ?>
+	        		<p><?= $alert ?></p>
+	        	<?php endif; ?>
+	            <?php include $template ?>
+	        </div>
+	    </main>
+	    
+	    <footer>
+	        <div class="container footer-flex">
+    	        <div class="icons">
+    	            <div>
+        	            <i class="fas fa-carrot"></i>
+        	            <p>Fresh Food</p>
+    	            </div>
+    	            <div>
+        	            <i class="fas fa-beer"></i>
+        	            <p>Good Beer</p>
+    	            </div>
+    	            <div>
+        	            <i class="fas fa-credit-card"></i>
+        	            <p>Secure Payment</p>
+    	            </div>
+    	            <div>
+        	            <i class="fas fa-temperature-low"></i>
+        	            <p>Chill Vibes</p>
+    	            </div>
+    	        </div>
+	         </div>
+	    </footer>
+	    <script src="www/js/validActionCmd.js"></script>
+	</body>
+</html>

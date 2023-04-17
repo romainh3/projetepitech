@@ -1,0 +1,29 @@
+<h1><i class="fas fa-user-plus"></i>Créer un compte</h1>
+
+<form action="index.php?name=create" method="post">
+    <input type="text" name="name" placeholder="nom">
+    <input type="text" name="surname" placeholder="prénom">
+    <select name="day">
+        <?php for($i = 1; $i <= 31; $i++): ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+        <?php endfor; ?>  
+    </select>
+    <select name="month">
+        <?php for($i = 1; $i <= 12; $i++): ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+        <?php endfor; ?>
+    </select>
+    <select name="year">
+        <?php for($i = 1940; $i <= date('Y') - 18; $i++): ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+        <?php endfor; ?>
+    </select>
+    <input type="textarea" name="address" placeholder="adresse :" />
+    <input type="text" name="city" placeholder="ville">
+    <input type="text" name="postcode" placeholder="Code Postal">
+    <input type="text" name="country" placeholder="Pays">
+    <input type="text" name="phone" placeholder="téléphone">
+    <input type="email" name="email" placeholder="joe@sweet.com">
+    <input type="password" name="password" placeholder="*******">
+    <button type="submit" name="send">créer le compte</button>
+</form>

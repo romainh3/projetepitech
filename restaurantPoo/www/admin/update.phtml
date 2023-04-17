@@ -1,0 +1,34 @@
+<?php $adminController = new AdminController(); ?>
+
+<?php if($adminController -> isAdmin()): ?>
+    <?php if(isset($_GET['id'])): ?>
+        
+        <form action="index.php?name=update&id=<?= $meal['id'] ?>" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="nom" value="<?= $meal['name'] ?>"/>
+            <textarea name="desc"  placeholder="description"><?= $meal['description'] ?></textarea>
+            <input type="number" name="price" step="0.01" placeholder="prix" value="<?= $meal['prix'] ?>"/>
+            <label for="imge">img</label>
+            <input type="file" name="img" id="imge"/>
+            <button type="submit" name="submit">Update</button>
+        </form>
+     
+    <?php else: ?>
+        <div class="home">
+            <?php foreach($meals as $meal): ?>
+                <?='<article> 
+                        <h2>'.$meal["name"].'</h2>
+                        <div>
+                            <img src=www/img/'.$meal["photo"].'></img>
+                            <div>
+                                <p>'.$meal["description"].'</p>
+                                <p>'.number_format($meal["prix"], 2).'</p>
+                            </div>
+                            <a href=index.php?name=update&id='.$meal["id"].'><i class="fas fa-edit"></i></a>
+                            <a href=index.php?name=removeMeal&id='.$meal["id"].'><i class="fas fa-trash-alt"></i></i></a>
+                        </div>
+                    </article>'?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+        
+<?php endif; ?>

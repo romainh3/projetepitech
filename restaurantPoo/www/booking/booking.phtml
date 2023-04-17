@@ -1,0 +1,21 @@
+<form action="index.php?name=booking" method="post">
+    <input type="date" name="date" value="<?= date('Y-m-d') ?>">
+    <select name="hour">
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+    </select> 
+   
+    <select name="min">
+        <option value="00">00</option>
+        <option value="15">15</option>
+        <option value="30">30</option>
+        <option value="45">45</option>
+    </select> 
+    
+    <input type="number" name="guest" min="1" value="2">
+    
+    <button type="submit" name="book">Réserver</button>
+</form>

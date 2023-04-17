@@ -1,0 +1,12 @@
+<?php $adminController = new AdminController(); ?>
+
+<?php if($adminController -> isAdmin()): ?>
+    <form action="index.php?name=addMeal" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="nom"/>
+        <textarea name="desc"  placeholder="description"></textarea>
+        <input type="number" name="price" step="0.01" placeholder="prix"/>
+        <label for="imge">img</label>
+        <input type="file" name="img" id="imge"/>
+        <button type="submit" name="submit">Ajouter</button>
+    </form>
+<?php endif; ?>
